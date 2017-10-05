@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<CodeSnippets  
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
+    <CodeSnippet Format="1.0.0">  
+        <Header>  
+            <Title>Selenium Test Page</Title> 
+            <Author>Kevin Kraus</Author>  
+            <Description>Inserts Basic Page Object Model</Description>  
+            <Shortcut>selpage</Shortcut>  
+        </Header>  
+        <Snippet>  
+            <Code Language="CSharp">  
+                <![CDATA[        public static void GoTo(string url = null)
+                        {
+                            Driver.Instance.Navigate().GoToUrl(Driver.BaseUrl);
+                        }
+
+                        public static bool IsAt
+                        {
+                            get
+                            {
+                                var requestBtns = Driver.Instance.FindElements(By.Id($TargetId$));
+
+                                if (requestBtns.Count > 0)
+                                    return true;
+
+                                return false;
+                            }
+                        }
+                        public static bool IsTextPresent(string textToLocate)
+                        {
+                            return Driver.Instance.PageSource.Contains(textToLocate);
+                        }
+                ]]>  
+            </Code>  
+            <Declarations>  
+                <Literal>  
+                    <ID>TargetId</ID>  
+                    <ToolTip>Replace with desired element ID</ToolTip>  
+                    <Default>"myElementId"</Default>  
+                </Literal>
+            </Declarations>
+        </Snippet> 
+    </CodeSnippet>  
+</CodeSnippets>
